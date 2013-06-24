@@ -1,0 +1,123 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/05-Factories
+
+prod:
+  logger:
+    class:   sfNoLogger
+    param:
+      level:   err
+      loggers: ~
+
+test:
+  storage:
+    class: sfSessionTestStorage
+    param:
+      session_path: %SF_TEST_CACHE_DIR%/sessions
+
+  response:
+    class: sfWebResponse
+    param:
+      send_http_headers: false
+
+  mailer:
+    param:
+      delivery_strategy: none
+
+dev:
+  mailer:
+    param:
+      delivery_strategy: none
+
+all:
+  routing:
+    class: sfPatternRouting
+    param:
+      generate_shortest_url:            true
+      extra_parameters_as_query_string: true
+  storage:
+    class: sfSessionStorage
+    param:
+      session_name: sicofipopu
+      
+  view_cache_manager:
+    class: sfViewCacheManager
+    param:
+      cache_key_use_vary_headers: true
+      cache_key_use_host_name:    true
+
+    
+  i18n:
+    class: sfI18N
+    param:
+      source:               XLIFF
+      debug:                false
+#      untranslated_prefix:  "[T]"
+#      untranslated_suffix:  "[/T]"
+      cache:
+        class: sfFileCache
+        param:
+          automatic_cleaning_factor: 0
+          cache_dir:                 %SF_I18N_CACHE_DIR%
+          lifetime:                  31556926
+          prefix:                    %SF_APP_DIR%/i18n
+
+
+
+#mailer
+#  charset 
+#  delivery_address 
+#  delivery_strategy 
+#  spool_arguments 
+#  spool_class 
+#  transport 
+#request 
+#  formats 
+#  path_info_array 
+#  path_info_key 
+#  relative_url_root 
+#response 
+#  charset 
+#  http_protocol 
+#  send_http_headers 
+#user 
+#  default_culture 
+#  timeout 
+#  use_flash 
+#storage 
+#  auto_start 
+#  database 
+#  db_table 
+#  db_id_col 
+#  db_data_col 
+#  db_time_col 
+#  session_cache_limiter 
+#  session_cookie_domain 
+#  session_cookie_httponly 
+#  session_cookie_lifetime 
+#  session_cookie_path 
+#  session_cookie_secure 
+#  session_name 
+#view_cache_manager 
+#  cache_key_use_vary_headers 
+#  cache_key_use_host_name 
+#view_cache 
+#i18n 
+#  cache 
+#  debug 
+#  source 
+#  untranslated_prefix 
+#  untranslated_suffix 
+#routing 
+#  cache 
+#  extra_parameters_as_query_string 
+#  generate_shortest_url 
+#  lazy_routes_deserialize 
+#  lookup_cache_dedicated_keys 
+#  load_configuration 
+#  segment_separators 
+#  suffix 
+#  variable_prefixes 
+#logger 
+#  level 
+#  loggers 
+#controller 

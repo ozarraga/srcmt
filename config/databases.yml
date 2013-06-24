@@ -1,0 +1,7 @@
+all:
+  doctrine:
+    class: sfDoctrineDatabase
+    param:
+      dsn: 'pgsql:host=localhost;port=5432;dbname=srcmt'
+      username: srcmt
+      password: srcmt

@@ -1,0 +1,63 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           sfGuardGroup
+    theme:                 jRoller
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          sf_guard_group
+    with_doctrine_route:   true
+    config:
+      extra: [show]
+
+    config:
+      actions: ~
+      fields:
+        id: {}
+        name: {label: Nombre}
+        description: {label: "Texto descriptivo"}
+        created_at: {label: "Creado el"}
+        updated_at: {label: "Actualizado el"}
+      list:
+        title: Grupos de Usuarios
+        display: [=name, description, created_at, updated_at]
+      filter:
+        class: sfGuardGroupFormFilter
+      form:
+        fields: {users_list: {label: Usuarios}, permissions_list: {label: Permisos}}
+        display: [name, description, users_list, permissions_list]
+      edit:
+        title: Editando al Grupo "%%name%%"
+        actions:
+          _save: { ui-icon: disk }
+#          _saveAndAdd: { ui-icon: "", title: "Salvar y Agregar" }
+          _delete: { ui-icon: trash }
+          _list: { ui-icon: arrowreturnthick-1-w }
+      new:
+        title: Nuevo Grupo
+        actions:
+          _save: { ui-icon: disk }
+      show:
+        title: Atributos del Grupo
+        fields:
+          id: {label: ID}
+          name: {label: Grupo}
+          description: {label: Texto descriptivo}
+          created_at: {label: "Creado el"}
+          updated_at: {label: "Actualizado el"}
+
+#    config:
+#      list:
+#        title: Group list
+#        display: [=name, description, created_at, updated_at]
+#
+#      form:
+#        display: [name, description, users_list, permissions_list]
+#
+#      edit:
+#        title: Editing Group "%%name%%"
+#
+#      new:
+#        title: New Group

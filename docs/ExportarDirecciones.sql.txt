@@ -1,0 +1,64 @@
+set names 'WIN1252';
+
+COPY  srcmt_brigadistas_dado  ( 
+  nacionalidad, 
+  cedula_identidad, 
+  religion, 
+  primer_apellido, 
+  segundo_apellido, 
+  primer_nombre, 
+  segundo_nombre, 
+  sexo, 
+  fecha_nacimiento, 
+  lugar_de_nacimiento, 
+  estado_civil, 
+  foto, 
+  grupo_sanguineo, 
+  codigo_estado, 
+  codigo_municipio, 
+  codigo_parroquia, 
+  codigo_ciudad, 
+  direccion_domiciliaria, 
+  telefono_domicilio, 
+  telefono_movil, 
+  correo_electronico, 
+  direccion_emergencia, 
+  telefono_emergencia, 
+  unidad_adscripcion_laboral, 
+  extension_interna, 
+  perfil_empleado, 
+  jefe_sector, 
+  grado_instruccion, 
+  especialidad, 
+  sedes, 
+  jerarquia, 
+  profesion, 
+  oficio, 
+  centro_votacion_cne, 
+  direccion_oficina, 
+  talla_pantalon, 
+  talla_camisa, 
+  talla_calzado, 
+  talla_gorra, 
+  estatura, 
+  peso, 
+  color_cabello, 
+  color_piel, 
+  discapacidad, 
+  alergias, 
+  dominio_mano, 
+  deporte, 
+  actividades_culturales, 
+  apellidos_beneficiario, 
+  nombres_beneficiario, 
+  cedula_beneficiario, 
+  telefono_beneficiario )
+    from  E'E:\\SRCMT\\DOCS\\datos_iniciales.csv' 
+    WITH  
+         
+           DELIMITER  AS  ';' 
+           NULL  AS  '' 
+           CSV  HEADER 
+                 /*QUOTE  AS  'quote'  */
+                 ESCAPE  AS  E'\n' 
+                

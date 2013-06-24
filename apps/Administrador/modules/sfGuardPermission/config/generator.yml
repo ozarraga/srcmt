@@ -1,0 +1,54 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           sfGuardPermission
+    theme:                 jRoller
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          sf_guard_permission
+    with_doctrine_route:   true
+
+    config:
+      fields:
+        id: {}
+        name: {label: Permiso}
+        description: {label: "Texto Descriptivo"}
+        created_at: {label: "Creado el"}
+        updated_at: {label: "Actualizado el"}
+      list:
+        title: Lista de Permisos
+        display: [=name, description, created_at, updated_at]
+
+      edit:
+        title: Editar Permiso "%%name%%"
+        actions:
+          _save: { ui-icon: disk }
+#          _saveAndAdd: { ui-icon: "", title: "Salvar y Agregar" }
+          _delete: { ui-icon: trash }
+          _list: { ui-icon: arrowreturnthick-1-w }
+      new:
+        title: Nuevo Permiso
+        actions:
+          _save: { ui-icon: "" }
+      form:
+        fields: {users_list: {label: Usuarios}, groups_list: {label: Grupos}}
+        display: [name, description, groups_list, users_list]
+
+      show:
+        title: Atributos del Permiso "%%name%%"
+        fields:
+          id: {label: ID}
+          name: {label: Grupo}
+          description: {label: Texto Descriptivo}
+          created_at: {label: "Creado el"}
+          updated_at: {label: "Actualizado el"}
+# config:
+#      actions: ~
+#      fields:  ~
+#      list:    ~
+#      filter:  ~
+#      form:    ~
+#      edit:    ~
+#      new:     ~

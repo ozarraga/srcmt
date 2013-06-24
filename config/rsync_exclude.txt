@@ -1,0 +1,19 @@
+# Project files
+/cache/*
+/nbproject/*
+/log/*
+/web/*_dev.php
+/web/uploads/*
+/rsync_logfile.*
+/nbproject
+/plugins/.*
+
+# SCM files
+.arch-params
+.bzr
+_darcs
+.git
+.hg
+.monotone
+.svn
+CVS

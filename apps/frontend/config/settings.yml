@@ -1,0 +1,71 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/04-Settings
+
+prod:
+  .settings:
+    no_script_name:         true
+    logging_enabled:        false
+
+dev:
+  .settings:
+    error_reporting:        <?php echo (E_ALL | E_STRICT)."\n" ?>
+    web_debug:              true
+    cache:                  false
+    no_script_name:         false
+    etag:                   false
+
+test:
+  .settings:
+    error_reporting:        <?php echo ((E_ALL | E_STRICT) ^ E_NOTICE)."\n" ?>
+    cache:                  false
+    web_debug:              false
+    no_script_name:         false
+    etag:                   false
+
+all:
+  .settings:
+    # Form security secret (CSRF protection)
+    csrf_secret:            f46b0cb381069c61868f686369898380d69eb4e2
+
+    # Output escaping settings
+    escaping_strategy:      true
+    escaping_method:        ESC_SPECIALCHARS
+
+    # Enable the database manager
+    use_database:           true
+    default_culture:        es
+    i18n:                   true
+    standard_helpers: [Partial, Cache, I18N]
+    enabled_modules:        [default, sfGuardAuth]
+    login_module:           sfGuardAuth
+    login_action:           signin
+
+    secure_module:          sfGuardAuth
+    secure_action:          secure
+#.actions
+# error_404 (page 30)
+# login (page 30)
+# secure (page 30)
+# module_disabled (page 30)
+# .settings
+# cache (page 32)
+# charset (page 31)
+# check_lock (page 34)
+# compressed (page 34)
+# csrf_secret (page 31)
+# default_culture (page 33)
+# default_timezone (page 32)
+# enabled_modules (page 31)
+# error_reporting (page 34)
+# escaping_strategy (page 30)
+# escaping_method (page 31)
+# etag (page 32)
+# i18n (page 32)
+# lazy_cache_key (page 33)
+# file_link_format (page 33)
+# logging_enabled (page 33)
+# no_script_name (page 33)
+# standard_helpers (page 33)
+# use_database (page 34)
+# web_debug (page 34)
+# web_debug_web_dir (page 35)

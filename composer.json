@@ -1,0 +1,13 @@
+{
+    "name": "vendor/s-r-c-m-t",
+    "description": "Description of project SRCMT.",
+    "authors": [
+        {
+            "name": "Administrador",
+            "email": "your@email.here"
+        }
+    ],
+    "require": {
+
+    }
+}

@@ -1,0 +1,35 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           SrcmtPfg
+    theme:                 jRoller
+    non_verbose_templates: true
+    with_show:             false
+    singular:              Pfg
+    plural:                Pfgs
+    route_prefix:          srcmt_pfg
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        id_pfg: {label: ID}
+        pfg: {label: Programa}
+      list:
+        title: Lista de Programas de Formacion de Grado
+      filter:  ~
+      form:    ~
+      edit:
+        title: Editar Programa de Formacion de Grado
+        actions:
+          _save: { ui-icon: disk }
+#          _saveAndAdd: { ui-icon: "", title: "Salvar y Agregar" }
+          _delete: { ui-icon: trash }
+          _list: { ui-icon: arrowreturnthick-1-w }
+      new:
+        title: Nuevo Programa
+        actions:
+          _save: { ui-icon: "" }
+      show:
+        title: "Atributos del Programa de Formacion de Grado"

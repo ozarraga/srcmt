@@ -1,0 +1,34 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           SrcmtTipoActividad
+    theme:                 jRoller
+    non_verbose_templates: true
+    with_show:             false
+    singular:              TipoActividad
+    plural:                TipoActividades
+    route_prefix:          srcmt_tipo_actividad
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+        title: Listar los Tipos de Actividades
+      filter:  ~
+      form:    ~
+      edit:
+        title: Editar el Tipo de Actividad "%%tipo_actividad%%"
+        actions:
+          _save: { ui-icon: disk }
+#          _saveAndAdd: { ui-icon: "", title: "Salvar y Agregar" }
+          _delete: { ui-icon: trash }
+          _list: { ui-icon: arrowreturnthick-1-w }
+      new:
+        title: Nuevo Tipo de Actividad
+        actions:
+          _save: { ui-icon: "" }
+      show:
+        title: Atributos del Tipo de Actividad "%%tipo_actividad%%"
+

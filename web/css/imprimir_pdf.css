@@ -1,0 +1,110 @@
+/*
+    Document   : imprimir_pdf
+    Created on : 11/05/2012, 05:43:44 AM
+    Author     : Oswaldo Zarraga
+    Description:
+        Ofrece una salida de formato compatible con la biblioteca tcpdf.
+
+!!! ADVERTENCIA: No se debe usar como presentación en el resto de la aplicación!!!!!!
+
+*/
+
+root {
+  display: block;
+
+}
+
+.ancho-vertical-pdf
+{
+	width: 166mm;
+	height: auto;
+}
+
+.ancho-vertical-pdf td
+{
+
+  padding-left: 2mm;
+  padding-top: 2mm;
+
+
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #006666;
+  color: #0A0BA3;
+  border-left-style: dotted;
+  border-left-width: 0.2px;
+  border-left-color: #cccccc;
+}
+.ancho-horizontal-pdf
+{
+	width: 229.4mm;
+	height: auto;
+}
+.ancho-horizontal-pdf td
+{
+
+  padding-left: 2mm;
+  padding-top: 2mm;
+
+
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #006666;
+  color: #0A0BA3;
+  border-left-style: dotted;
+  border-left-width: 0.2px;
+  border-left-color: #cccccc;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+
+
+.ancho-foto-pdf
+{
+	width: 30mm;
+
+
+}
+.colapsa-borde-tabla-pdf
+{
+	border-collapse: collapse;
+}
+.basicos-col1-pdf
+.basicos-col2-pdf
+.basicos-col3-pdf
+{
+  width: 45.333mm;
+}
+.linea_gris_pdf
+{
+  background: none repeat scroll 0 0 #F4F4F4;
+}
+.letra_verdana
+{
+  font-family: Verdana,Arial,Helvetica,sans-serif;
+
+}
+.letra_azul
+{
+  color: #003366;
+}
+.borde_azul
+{
+
+  border-right-style: solid;
+  border-left-style: solid;
+  border-bottom-style: solid;
+  border-top-style: solid;
+  border-right-width: 1px;
+  border-left-width: 1px;
+  border-bottom-width: 1px;
+  border-top-width: 1px;
+  border-right-color: #003366;
+  border-left-color: #003366;
+  border-bottom-color: #003366;
+  border-top-color: #003366;
+}
+

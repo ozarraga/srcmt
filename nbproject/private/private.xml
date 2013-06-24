@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <coverage xmlns="http://www.netbeans.org/ns/code-coverage/1" enabled="false"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1">
+        <file>
+            <url>apps/frontend/modules/BrigadistasDado/actions/ImprimirActividadesAction.class.php</url>
+            <line>357</line>
+            <line>501</line>
+            <line>529</line>
+            <line>602</line>
+            <line>671</line>
+        </file>
+        <file>
+            <url>lib/form/doctrine/SrcmtMilicianosForm.class.php</url>
+            <line>175</line>
+        </file>
+        <file>
+            <url>lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/widget/sfWidgetFormDoctrineChoice.class.php</url>
+            <line>80</line>
+        </file>
+        <file>
+            <url>apps/frontend/modules/SrcmtActividadesIcm/actions/ImprimirBrigadistasAction.class.php</url>
+            <line>30</line>
+            <line>237</line>
+        </file>
+        <file>
+            <url>lib/filter/doctrine/SrcmtMilicianosFormFilter.class.php</url>
+            <line>91</line>
+            <line>111</line>
+            <line>112</line>
+            <line>131</line>
+            <line>234</line>
+            <line>244</line>
+        </file>
+        <file>
+            <url>apps/frontend/modules/BrigadistasDado/actions/actions.class.php</url>
+            <line>593</line>
+        </file>
+        <file>
+            <url>apps/frontend/config/routing.yml</url>
+            <line>61</line>
+            <line>158</line>
+            <line>338</line>
+        </file>
+        <file>
+            <url>cache/Administrador/dev/modules/autoSfGuardUser/templates/_list.php</url>
+            <line>7</line>
+        </file>
+    </editor-bookmarks>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="5">
+        <file>
+            <url>apps/frontend/modules/BrigadistasDado/actions/actions.class.php</url>
+            <bookmark id="0">
+                <name/>
+                <line>427</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>cache/Administrador/dev/modules/autoSfGuardUser/templates/_list.php</url>
+            <bookmark id="0">
+                <name/>
+                <line>7</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>apps/frontend/modules/SrcmtActividadesIcm/actions/ImprimirBrigadistasAction.class.php</url>
+            <bookmark id="0">
+                <name/>
+                <line>30</line>
+                <key/>
+            </bookmark>
+            <bookmark id="0">
+                <name/>
+                <line>237</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>apps/frontend/config/routing.yml</url>
+            <bookmark id="0">
+                <name/>
+                <line>61</line>
+                <key/>
+            </bookmark>
+            <bookmark id="0">
+                <name/>
+                <line>158</line>
+                <key/>
+            </bookmark>
+            <bookmark id="0">
+                <name/>
+                <line>340</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>lib/form/doctrine/SrcmtMilicianosForm.class.php</url>
+            <bookmark id="0">
+                <name/>
+                <line>175</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/widget/sfWidgetFormDoctrineChoice.class.php</url>
+            <bookmark id="0">
+                <name/>
+                <line>80</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>lib/filter/doctrine/SrcmtMilicianosFormFilter.class.php</url>
+            <bookmark id="0">
+                <name/>
+                <line>85</line>
+                <key/>
+            </bookmark>
+            <bookmark id="0">
+                <name/>
+                <line>105</line>
+                <key/>
+            </bookmark>
+            <bookmark id="0">
+                <name/>
+                <line>106</line>
+                <key/>
+            </bookmark>
+            <bookmark id="0">
+                <name/>
+                <line>125</line>
+                <key/>
+            </bookmark>
+            <bookmark id="0">
+                <name/>
+                <line>228</line>
+                <key/>
+            </bookmark>
+            <bookmark id="0">
+                <name/>
+                <line>238</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>apps/frontend/modules/milicianos/actions/EstadisticasGetAjaxAction.class.php</url>
+            <bookmark id="3">
+                <name/>
+                <line>28</line>
+                <key/>
+            </bookmark>
+            <bookmark id="5">
+                <name/>
+                <line>488</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
+</project-private>

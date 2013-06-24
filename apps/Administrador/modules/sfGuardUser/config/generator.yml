@@ -1,0 +1,80 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           sfGuardUser
+    theme:                 jRoller
+    non_verbose_templates: false
+    with_show:             true
+    singular:              ~
+    plural:                ~
+    route_prefix:          sf_guard_user
+    with_doctrine_route:   true
+    config:
+      extra: [show]
+
+    config:
+      actions: 
+      fields:
+        id: {}
+        first_name: {}
+        last_name: {}
+        email_address: {}
+        username: {label: Usuario}
+        algorithm: {}
+        salt: {}
+        password: {}
+        is_active: {}
+        is_super_admin: {}
+        last_login: {label: Acceso mas reciente }
+        created_at: {label: "Creado el"}
+        updated_at: {label: "Actualizado el"}
+      list:
+        title:   Lista de usuarios registrados
+        display: [=username, created_at, updated_at, last_login]
+        sort: [updated_at, desc]
+        max_per_page: 10
+      filter:
+        class: sfGuardUserFormFilter
+      form:
+        class: sfGuardUserAdminForm
+        display:
+          "Usuario": [first_name, last_name, email_address, username, password, password_again]
+          "Permisos y Grupos": [is_active, is_super_admin, groups_list, permissions_list]
+      edit:
+        title: Editando usuario "%%username%%"
+        actions:
+          _save: { ui-icon: disk }
+#          _saveAndAdd: { ui-icon: "", title: "Salvar y Agregar" }
+          _delete: { ui-icon: trash }
+          _list: { ui-icon: arrowreturnthick-1-w }
+      new:
+        title: Nuevo usuario
+        actions:
+          _save: { ui-icon: "" }
+      show:
+        title: Atributos del usuario  "%%username%%"
+        fields:
+          id: {label: ID}
+          first_name: {label: Nombre}
+          last_name: {label: Apellido}
+          email_address: {label: Correo electronico}
+          username: {label: Usuario}
+          algorithm: {label: Algoritmo de encriptamiento}
+          is_active: {label: Es activo, type: Boolean }
+          is_super_admin: {label: Es super administrador}
+          last_login: {label: Acceso mas reciente, date_format: DD/MM/YYY }
+          created_at: {label: "Creado el"}
+          updated_at: {label: "Actualizado el"}
+        display: [=id, username, first_name, last_name, email_address, algorithm, is_active, is_super_admin, last_login, created_at, updated_at]
+
+
+#
+
+# config:
+#      actions: ~
+#      fields:  ~
+#      list:    ~
+#      filter:  ~
+#      form:    ~
+#      edit:    ~
+#      new:     ~

@@ -1,0 +1,451 @@
+/*
+    Document   : srcmt
+    Created on : 11/06/2011, 04:46:59 PM
+    Author     : JACQUELINE GONZALEZ
+    Description:
+    Purpose of the stylesheet follows.
+*/
+
+/*
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root {
+
+}
+
+.datatables-checkboxes{
+  list-style: none;
+  margin-left: 0px;
+
+}
+
+#contenedor
+{
+  position: relative;
+  display: table;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#img-cintillo-srcmt
+{
+  display:block;
+  width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+#contenido
+{
+  top: 0;
+}
+
+#menu
+#menu-app
+{
+  width: 99.99%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#menu-modulo
+{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#menu-modulo span.ui-widget-header
+{
+  background-image: url(ubv/images/sub-menu-barra.png);
+}
+
+.forma-fondo
+{
+
+  border-right-style: double;
+  border-left-style: double;
+  border-bottom-style: double;
+  border-top-style: double;
+  border-right-color: #0033ff;
+  border-left-color: #0033ff;
+  border-bottom-color: #0033ff;
+  border-top-color: #0033ff;
+  border-right-width: 1px;
+  border-left-width: 1px;
+  border-bottom-width: 1px;
+  border-top-width: 1px;
+  display: block;
+  background-color: #ffffff;
+  padding: 10px 4px;
+  height: auto;
+}
+
+#foto
+{
+  float: right;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 10px;
+  padding: 5px;
+  background: #fff;
+  height: 60px;
+  width: 60px;
+  display: inline-block;
+  position: absolute;
+}
+
+.titulos-show
+{
+  border-right-style: double;
+  border-left-style: double;
+  border-bottom-style: double;
+  border-top-style: double;
+  border-right-color: #0033ff;
+  border-left-color: #0033ff;
+  border-bottom-color: #0033ff;
+  border-top-color: #0033ff;
+  border-right-width: 1px;
+  border-left-width: 1px;
+  border-bottom-width: 1px;
+  border-top-width: 1px;
+  display: block;
+  background-color: #ffffff;
+  padding: 2px 2px;
+  height: auto;
+  font-family: Verdana,Arial,Helvetica,sans-serif;
+  color: #0033ff;
+  font-weight: bold;
+  font-variant: normal;
+  text-decoration: none;
+  background-image: url(images/bg.gif);
+}
+
+.opcion-barra
+{
+  /*    background:  url(ubv/images/ui-bg_glass_75_43aaef_1x400.png) 50% 50% repeat-x;*/
+  border-right-style: double;
+  border-left-style: double;
+  border-bottom-style: double;
+  border-top-style: double;
+  border-right-color: #0033ff;
+  border-left-color: #0033ff;
+  border-bottom-color: #0033ff;
+  border-top-color: #0033ff;
+  border-right-width: 1px;
+  border-left-width: 1px;
+  border-bottom-width: 1px;
+  border-top-width: 1px;
+  display: block;
+  background-color: #ffffff;
+  background-image: url(images/wbg.gif);
+  padding: 10px 4px;
+  height: auto;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+#toolbar-menu-app,
+#toolbar-menu-actividades-fcm,
+#toolbar-menu-consultas,
+#toolbar-menu-modulo,
+#toolbar-menu-registro,
+#toolbar-menu-reportes,
+#toolbar-menu-actualizar-tablas
+{
+  padding: 10px 4px;
+  height: auto;
+  width: 99.99%;
+
+}
+
+#tabs-miliciano table tbody tr th label
+{
+  margin: 0;
+}
+
+.srcmt-dimension-forma
+{
+  table-layout: auto;
+  margin-left: auto;
+  margin-right: auto;
+  empty-cells: show;
+}
+
+.srcmt-dimension-forma td
+{
+  vertical-align: top;
+  text-align: left;
+  padding-right: 10px ;
+  padding-top: 5px;
+}
+
+.obligatorio
+{
+  vertical-align: top;
+  color: #ff1e00;
+  text-align: left;
+}
+
+.srcmt-centra-ul-tab ul
+{
+  margin-left:auto;
+  margin-right: auto;
+}
+
+.error_list
+{
+  list-style-position: outside;
+  margin-top: 10px;
+  vertical-align: bottom;
+  text-align: left;
+  color: #ff1e00;
+  border-right-style: none;
+  border-left-style: none;
+  border-bottom-style: none;
+  border-top-style: none;
+  margin-bottom: 0px;
+  height: 0px;
+  position: inherit;
+}
+
+.srcmt-dimension-forma br
+{
+  top: 1px;
+  bottom: 1px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  text-align: left;
+  vertical-align: baseline;
+}
+
+.iconos-de-titulos
+{
+  display: inline-block
+}
+
+.td-actividades-icm td,
+.td-actividades-academicas td,
+.td-milicianos td,
+.td-brigadistas-dado td
+{
+
+  padding: 6px 7px;
+  border-collapse: collapse;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #0000FF;
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-right-color: #0000FF;
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-left-color: #B1C4EC;
+}
+.th-actividades-icm th,
+.th-actividades-academicas th,
+.th-milicianos th,
+.th-brigadistas-dado th
+{
+  padding: 6px 7px;
+  border-collapse: collapse;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #ffffff;
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-right-color: #ffffff;
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-left-color: #B1C4EC;
+
+  /*  border: 1px solid #222963;*/
+  background: #070ebb url(ubv/images/ui-bg_inset-hard_75_070ebb_1x100.png) 50% 50% repeat-x;
+  color: #ffffff;
+}
+.td-fondo-blanco td
+{
+
+  background-color: #ffffff;
+}
+
+.tfoot-tr-td-input td
+{
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+
+}
+
+.bordes-adorno
+{
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #ffffff;
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-right-color: #ffffff;
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-left-color: #B1C4EC;
+  background-color: #070ebb;
+}
+
+.ancho-auto
+{
+  width: auto;
+}
+
+#feedback { font-size: 1.4em; }
+/*    #columnas-seleccionables .ui-selecting {
+            background: #FECA40;
+    }
+    #columnas-seleccionables .ui-selected {
+            background: #F39814;
+            color: white;
+    }*/
+
+#columnas-seleccionables {
+  list-style-type: none;
+  margin: auto;
+  padding: 0;
+  width: 60%; }
+
+#columnas-seleccionables li {
+  margin: 3px;
+  padding: 0.4em;
+  font-size: 1.4em;
+  height: 18px;
+}
+
+.error_list
+{
+  list-style: none;
+  text-align: justify;
+  vertical-align: text-top;
+  text-indent: -5px;
+  line-height: 10px;
+}
+
+#signin_username,
+#signin_password
+{
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.ancho-alineacion
+{
+    width: 55%;
+    border-collapse: collapse;
+    position: relative;
+    height: 50%;
+    top: auto;
+    bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.conectar
+{
+  font-size: 2em;
+/*  position: relative;*/
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+.data-frame{background: url(images/bg-data-box-t.gif) no-repeat;height:1%;
+  background-image: url(images/bg-empresas.gif);
+}
+.profile{height:1%;overflow:hidden;padding:0 0 10px 5px;}
+.profile .photo{width:120px;height:141px;float:left;}
+.profile .identity{float:left;width:87%;padding:5px 0 0 8px;margin:0 0 -15px;list-style:none;}
+*+html .profile .identity{margin-bottom:-8px;}
+.identity li{float:left;width:100%;padding:6px 10px 7px;margin:0 0 3px;}
+.identity li.even{background:#f4f4f4;}
+.identity li .col1{float:left;width:45%;padding:0 77px 0 0;}
+.identity li .col2{float:left;width:45%;}
+.identity li strong{color:#036;padding:0 5px 0 0;}
+.identity li .col1 ul{margin:0;padding:0;list-style:none;width:100%;overflow:hidden;}
+.identity li .col1 ul li{width:100%;padding:0;margin:0 0 5px;}
+.identity li .col1 ul li .col1{float:left;width:100px;padding:0;}
+.identity li .col1 ul li .col2{float:left;width:135px;padding:0 0 0 5px;}
+.identity li .col2 ul{margin:0;padding:0;list-style:none;width:100%;overflow:hidden;}
+.identity li .col2 ul li.col1{width:70px;padding:0 3px 0 0;}
+.identity li .col2 ul li.col2{width:135px;padding:0;}
+.identity li .col2 ul li.col2 span{display:block;padding:0 0 4px;}
+li.even{background:#fff;}
+
+
+#banner-identificacion
+{
+  width: 100%;
+}
+
+#banner-identificacion h3
+{
+  margin-left: auto;
+  margin-right: auto;
+  font-family: Verdana,Arial,Helvetica,sans-serif;
+  color: white;
+  text-align: center;
+}
+
+#banner-izquierdo
+{ margin-left: auto;
+  margin-right: auto;
+}
+
+#banner-central
+{ margin-left: auto;
+  margin-right: auto;
+}
+
+#banner-derecho
+{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#img-titulo-sistema
+{
+  width: 99.99%;
+  height: 99.99%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#img-banner-dgcm
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0%;
+  bottom: 100%;
+  z-index: -15;
+}
+
+#div-ajuste-banner
+{
+  display: block;
+  /*    border-right-style: solid;
+      border-left-style: solid;
+      border-bottom-style: solid;
+      border-top-style: solid;*/
+  height: 160px;
+  position: relative;
+}
+
+#img-logo-dgcm
+#img-logo-bolivariana
+{
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+}

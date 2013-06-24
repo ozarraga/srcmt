@@ -1,0 +1,36 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           SrcmtSedes
+    theme:                 jRoller
+    non_verbose_templates: true
+    with_show:             false
+    singular:              Sede
+    plural:                Sedess
+    route_prefix:          srcmt_sedes
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        sedes: {label: Sede}
+        direccion: {label: Direccion}
+        id_sedes: {label: ID}
+      list:
+        title: Lista de Sedes de la Universidad Bolivariana de Venezuela
+      filter:  ~
+      form:    ~
+      edit:
+        title: Editar Sede %%sedes%%
+        actions:
+          _save: { ui-icon: disk }
+#          _saveAndAdd: { ui-icon: "", title: "Salvar y Agregar" }
+          _delete: { ui-icon: trash }
+          _list: { ui-icon: arrowreturnthick-1-w }
+      new:
+        title: Nueva Sede de la Universidad Bolivariana de Venezuela
+        actions:
+          _save: { ui-icon: "" }
+      show:
+        title: Atributos de la Sede %%sedes%%

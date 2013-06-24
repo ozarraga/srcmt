@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
+<xliff version="1.0">
+  <file source-language="en" target-language="es_VE" datatype="plaintext" original="messages" date="2011-02-16T15:39:46Z" product-name="messages">
+    <header/>
+    <body>
+      <trans-unit id="1">
+        <source>Signin</source>
+        <target>Entrando</target>
+      </trans-unit>
+      <trans-unit id="2">
+        <source>Forgot your password?</source>
+        <target>Ha olvidado su contraseña?</target>
+      </trans-unit>
+      <trans-unit id="3">
+        <source>Want to register?</source>
+        <target>Desea Registrarse?</target>
+      </trans-unit>
+      <trans-unit id="4">
+        <source>Oops! The page you asked for is secure and you do not have proper credentials.</source>
+        <target>Recórcholis! La página que solicitó está asegurada y usted no tiene los permisos apropiados.</target>
+      </trans-unit>
+      <trans-unit id="5">
+        <source>Login below to gain access</source>
+        <target>Autentiquese abajo para obtener acceso</target>
+      </trans-unit>
+      <trans-unit id="6">
+        <source>Invalid</source>
+        <target>Invalido</target>
+      </trans-unit>
+      <trans-unit id="7">
+        <source>Required</source>
+        <target>Requerido</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

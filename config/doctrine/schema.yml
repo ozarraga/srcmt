@@ -1,0 +1,1309 @@
+SrcmtActividadAcademicaBrigadistaDado:
+  actAs: [Timestampable]
+  connection: doctrine
+  tableName: srcmt_actividad_academica_brigadista_dado
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: srcmt_actividad_academica_brigadista_dado_id
+    codigo_brigadista:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    codigo_actividad_academica:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    created_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      default: '(''now''::text)::timestamp without time zone'
+      primary: false
+    updated_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      default: '(''now''::text)::timestamp without time zone'
+      primary: false
+  relations:
+    SrcmtActividadesAcademicas:
+      local: codigo_actividad_academica
+      foreign: codigo_actividad_academica
+      type: one
+    SrcmtBrigadistasDado:
+      local: codigo_brigadista
+      foreign: codigo_brigadista
+      type: one
+SrcmtActividadAcademicaMiliciano:
+  actAs: [Timestampable]
+  connection: doctrine
+  tableName: srcmt_actividad_academica_miliciano
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: srcmt_actividad_academica_miliciano_id
+    codigo_miliciano:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    codigo_actividad_academica:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  relations:
+    SrcmtActividadesAcademicas:
+      local: codigo_actividad_academica
+      foreign: codigo_actividad_academica
+      type: one
+    SrcmtMilicianos:
+      local: codigo_miliciano
+      foreign: codigo_miliciano
+      type: one
+SrcmtActividadIcmBrigadistaDado:
+  actAs: [Timestampable]
+  connection: doctrine
+  tableName: srcmt_actividad_icm_brigadista_dado
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: srcmt_actividad_icm_brigadista_dado_id
+    codigo_brigadista:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    codigo_actividad:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  relations:
+    SrcmtActividadesIcm:
+      local: codigo_actividad
+      foreign: codigo_actividad_icm
+      type: one
+    SrcmtBrigadistasDado:
+      local: codigo_brigadista
+      foreign: codigo_brigadista
+      type: one
+SrcmtActividadIcmMiliciano:
+  actAs: [Timestampable]
+  connection: doctrine
+  tableName: srcmt_actividad_icm_miliciano
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: srcmt_actividad_icm_miliciano_id
+    codigo_miliciano:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    codigo_actividad:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  relations:
+    SrcmtActividadesIcm:
+      local: codigo_actividad
+      foreign: codigo_actividad_icm
+      type: one
+    SrcmtMilicianos:
+      local: codigo_miliciano
+      foreign: codigo_miliciano
+      type: one
+SrcmtActividadesAcademicas:
+  actAs: [Timestampable]
+  connection: doctrine
+  tableName: srcmt_actividades_academicas
+  columns:
+    codigo_actividad_academica:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: srcmt_actividades_academicas_codigo_actividad_academica
+    codigo_tipo_actividad:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    actividad:
+      type: string(255)
+      fixed: true
+      unsigned: false
+      notnull: true
+      primary: false
+    responsable:
+      type: string(255)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    fecha:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    lugar:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    duracion:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    descripcion:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+  relations:
+    SrcmtTipoActividad:
+      local: codigo_tipo_actividad
+      foreign: codigo_tipo_actividad
+      type: one
+    milicianos:
+      class: SrcmtMilicianos
+      local: codigo_actividad_academica
+      foreign: codigo_miliciano
+      refClass: SrcmtActividadAcademicaMiliciano
+      foreignAlias: Milicianos
+    brigadistas_dado:
+      class: SrcmtBrigadistasDado
+      local: codigo_actividad_academica
+      foreign: codigo_brigadista
+      refClass: SrcmtActividadAcademicaBrigadistaDado
+      foreignAlias: BrigadistaDADO
+SrcmtActividadesIcm:
+  actAs: [Timestampable]
+  connection: doctrine
+  tableName: srcmt_actividades_icm
+  columns:
+    codigo_actividad_icm:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: srcmt_actividades_icm_codigo_actividad_icm
+    codigo_tipo_actividad:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    actividad:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    responsable:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    fecha:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    lugar:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    duracion:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    descripcion:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+  relations:
+    SrcmtTipoActividad:
+      local: codigo_tipo_actividad
+      foreign: codigo_tipo_actividad
+      type: one
+    milicianos:
+      class: SrcmtMilicianos
+      local: codigo_actividad
+      foreign: codigo_miliciano
+      refClass: SrcmtActividadIcmMiliciano
+      foreignAlias: Milicianos
+    brigadistas_dado:
+      class: SrcmtBrigadistasDado
+      local: codigo_actividad
+      foreign: codigo_brigadista
+      refClass: SrcmtActividadIcmBrigadistaDado
+      foreignAlias: BrigadistaDADO
+SrcmtBrigadistasDado:
+  actAs: [Timestampable]
+  connection: doctrine
+  tableName: srcmt_brigadistas_dado
+  columns:
+    codigo_brigadista:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: srcmt_brigadistas_dado_codigo_brigadista
+    nacionalidad:
+      type: enum
+      length: 1
+      values: [V, E]
+      fixed: true
+      unsigned: false
+      notnull: true
+      primary: false
+    cedula_identidad:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+      unique: true
+    religion:
+      type: string(15)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    primer_apellido:
+      type: string(30)
+      fixed: true
+      unsigned: false
+      notnull: true
+      primary: false
+    segundo_apellido:
+      type: string(30)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    primer_nombre:
+      type: string(30)
+      fixed: true
+      unsigned: false
+      notnull: true
+      primary: false
+    segundo_nombre:
+      type: string(30)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    sexo:
+      type: enum
+      length: 1
+      values: [F, M]
+      notnull: true
+      primary: false
+    fecha_nacimiento:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    lugar_de_nacimiento:
+      type: string(40)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    estado_civil:
+      type: enum
+      length: 11
+      values: [SOLTERO, CASADO, DIVORCIADO, VIUDO, CONCUBINATO]
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    foto:
+      type: string(255)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    grupo_sanguineo:
+      type: enum
+      length: 4
+      values: [O+, O-, A-, A+, B-, B+, AB-, AB+]
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    codigo_estado:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    codigo_municipio:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    codigo_parroquia:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    codigo_ciudad:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    direccion_domiciliaria:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    telefono_domicilio:
+      type: string(20)
+      fixed: true
+      unsigned: false
+      notnull: true
+      primary: false
+    telefono_movil:
+      type: string(20)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    correo_electronico:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    direccion_emergencia:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    telefono_emergencia:
+      type: string(20)
+      fixed: true
+      unsigned: false
+      notnull: true
+      primary: false
+    unidad_adscripcion_laboral:
+      type: string(50)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    extension_interna:
+      type: string(6)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    perfil_empleado:
+      type: enum
+      length: 14
+      values: ['', Directivo, Administrativo, Docente, Obrero]
+      default: ''
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    jefe_sector:
+      type: string(50)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    grado_instruccion:
+      type: enum
+      length: 14
+      values: ['', Basico, Medio, Diversificado, Universitario, Posgrado, Doctorado]
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    especialidad:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    sedes:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    jerarquia:
+      type: string(20)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    profesion:
+      type: string(100)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    oficio:
+      type: string(100)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    centro_votacion_cne:
+      type: string(255)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    direccion_oficina:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    talla_pantalon:
+      type: string(4)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    talla_camisa:
+      type: string(4)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    talla_calzado:
+      type: string(4)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    talla_gorra:
+      type: string(4)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    estatura:
+      type: string(4)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    peso:
+      type: float()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    color_cabello:
+      type: string(10)
+      fixed: true
+      unsigned: false
+      notnull: true
+      primary: false
+    color_piel:
+      type: string(20)
+      fixed: true
+      unsigned: false
+      notnull: true
+      primary: false
+    discapacidad:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    alergias:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    dominio_mano:
+      type: enum
+      length: 15
+      values: ['', Diestro, Siniestro, Ambidiestro]
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    deporte:
+      type: string(20)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    actividades_culturales:
+      type: string(20)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    apellidos_beneficiario:
+      type: string(60)
+      fixed: true
+      unsigned: false
+      notnull: true
+      primary: false
+    nombres_beneficiario:
+      type: string(60)
+      fixed: true
+      unsigned: false
+      notnull: true
+      primary: false
+    cedula_beneficiario:
+      type: string(11)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    telefono_beneficiario:
+      type: string(20)
+      fixed: true
+      unsigned: false
+      notnull: true
+      primary: false
+  relations:
+    SrcmtSedes:
+      local: sedes
+      foreign: id_sedes
+      type: one
+    actividad_academica:
+      class: SrcmtActividadesAcademicas
+      local: codigo_brigadista
+      foreign: codigo_actividad_academica
+      refClass: SrcmtActividadAcademicaBrigadistaDado
+      foreignAlias: ActividadesAcademicas
+    actividad_icm:
+      class: SrcmtActividadesIcm
+      local: codigo_brigadista
+      foreign: codigo_actividad
+      refClass: SrcmtActividadIcmBrigadistaDado
+      foreignAlias: ActividadesIcm
+SrcmtCiudad:
+  connection: doctrine
+  tableName: srcmt_ciudad
+  columns:
+    codigo_ciudad:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+    codigo_estado:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+    codigo_municipio:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+    ciudad:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  relations:
+    SrcmtEstado:
+      local: codigo_estado
+      foreign: codigo_estado
+      foreignType: one
+    SrcmtMunicipio:
+      local: [codigo_estado, codigo_municipio]
+      foreign: [codigo_estado, codigo_municipio]
+      foreignType: one
+SrcmtEstado:
+  connection: doctrine
+  tableName: srcmt_estado
+  columns:
+    codigo_estado:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+    estado:
+      type: string(20)
+      fixed: true
+      unsigned: false
+      notnull: true
+      primary: false
+  relations:
+    SrcmtMunicipio:
+      local: codigo_estado
+      foreign: codigo_estado
+      type: many
+SrcmtMilicianos:
+  actAs: [Timestampable]
+  connection: doctrine
+  tableName: srcmt_milicianos
+  columns:
+    codigo_miliciano:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: srcmt_milicianos_codigo_miliciano
+    nacionalidad:
+      type: enum
+      length: 1
+      values: [V, E]
+      fixed: true
+      unsigned: false
+      notnull: true
+      primary: false
+    cedula_identidad:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+      unique: true
+    primer_apellido:
+      type: string(30)
+      fixed: true
+      unsigned: false
+      notnull: true
+      primary: false
+    segundo_apellido:
+      type: string(30)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    primer_nombre:
+      type: string(30)
+      fixed: true
+      unsigned: false
+      notnull: true
+      primary: false
+    segundo_nombre:
+      type: string(30)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    sexo:
+      type: enum
+      length: 1
+      values: [F, M]
+      notnull: true
+      primary: false
+    fecha_nacimiento:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    estado_civil:
+      type: enum
+      length: 11
+      values: [SOLTERO, CASADO, DIVORCIADO, VIUDO, CONCUBINATO]
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    foto:
+      type: string(255)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    grupo_sanguineo:
+      type: enum
+      length: 4
+      values: [O+, O-, A-, A+, B-, B+, AB-, AB+]
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    codigo_estado:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    codigo_municipio:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    codigo_parroquia:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    codigo_ciudad:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    direccion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    telefono_local:
+      type: string(20)
+      fixed: true
+      unsigned: false
+      notnull: true
+      primary: false
+    movil:
+      type: string(20)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    correo_electronico:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    direccion_emergencia:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    telefono_emergencia:
+      type: string(20)
+      fixed: true
+      unsigned: false
+      notnull: true
+      primary: false
+    grado_instruccion:
+      type: enum
+      length: 14
+      values: ['', Basico, Medio, Diversificado, Universitario, Posgrado, Doctorado]
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    especialidad:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    idiomas:
+      type: string(20)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    nivel_dominio_idioma:
+      type: enum
+      length: 8
+      values: [Basico, Avanzado]
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    programa_formacion_grado:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    trayecto:
+      type: enum
+      length: 3
+      values: ['', I, II, III, IV]
+      fixed: true
+      unsigned: false
+      notnull: true
+      primary: false
+    tramo:
+      type: enum
+      length: 3
+      values: ['', I, II, III]
+      fixed: true
+      unsigned: false
+      notnull: true
+      primary: false
+    aldea:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    sedes:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    componente:
+      type: string(30)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    jerarquia:
+      type: string(20)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    contingente:
+      type: string(15)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    arma_servicio:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    batallon_unidad_origen:
+      type: string(100)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    profesion:
+      type: string(100)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    oficio:
+      type: string(100)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    trabaja_si_no:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    nombre_empresa:
+      type: string(100)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    direccion_oficina:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    telefono_oficina:
+      type: string(20)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    posee_vehiculo:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    tipo_vehiculo:
+      type: string(20)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    modelo_vehiculo:
+      type: string(20)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    numero_placa:
+      type: string(15)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    posee_licencia:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    grado_licencia:
+      type: string(5)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    porte_armas:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    numero_porte_armas:
+      type: string(15)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    tipo_armamento:
+      type: string(11)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    calibre_armamento:
+      type: string(5)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    signos_particulares:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    talla_uniforme:
+      type: enum
+      length: 3
+      values: ['', SS, SL, SR, MR, ML, LL, LM, LR, XL, XXL]
+      fixed: true
+      unsigned: false
+      notnull: true
+      primary: false
+    talla_calzado:
+      type: string(2)
+      fixed: true
+      unsigned: false
+      notnull: true
+      primary: false
+    estatura:
+      type: string(4)
+      fixed: true
+      unsigned: false
+      notnull: true
+      primary: false
+    peso:
+      type: float()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    color_cabello:
+      type: string(10)
+      fixed: true
+      unsigned: false
+      notnull: true
+      primary: false
+    color_piel:
+      type: string(20)
+      fixed: true
+      unsigned: false
+      notnull: true
+      primary: false
+    discapacidad:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    alergias:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    dominio_mano:
+      type: enum
+      length: 15
+      values: ['', Diestro, Siniestro, Ambidiestro]
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    practica_deporte:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    deporte:
+      type: string(20)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    participa_actividad_cultural:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    actividad_cultural:
+      type: string(20)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    agrupacion_social:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    misiones:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    cooperativas:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    apellidos_beneficiario:
+      type: string(60)
+      fixed: true
+      unsigned: false
+      notnull: true
+      primary: false
+    nombres_beneficiario:
+      type: string(60)
+      fixed: true
+      unsigned: false
+      notnull: true
+      primary: false
+    cedula_beneficiario:
+      type: string(11)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    telefono_beneficiario:
+      type: string(20)
+      fixed: true
+      unsigned: false
+      notnull: true
+      primary: false
+  relations:
+    SrcmtPfg:
+      local: programa_formacion_grado
+      foreign: id_pfg
+      type: one
+    SrcmtSedes:
+      local: sedes
+      foreign: id_sedes
+      type: one
+    actividad_academica:
+      class: SrcmtActividadesAcademicas
+      local: codigo_miliciano
+      foreign: codigo_actividad_academica
+      refClass: SrcmtActividadAcademicaMiliciano
+      foreignAlias: ActividadesAcademicas
+    actividad_icm:
+      class: SrcmtActividadesIcm
+      local: codigo_miliciano
+      foreign: codigo_actividad
+      refClass: SrcmtActividadIcmMiliciano
+      foreignAlias: ActividadesIcm
+SrcmtMunicipio:
+  connection: doctrine
+  tableName: srcmt_municipio
+  columns:
+    codigo_municipio:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+    codigo_estado:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+    municipio:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  relations:
+    SrcmtEstado:
+      local: codigo_estado
+      foreign: codigo_estado
+      type: one
+SrcmtParroquia:
+  connection: doctrine
+  tableName: srcmt_parroquia
+  columns:
+    codigo_parroquia:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+    parroquia:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    codigo_municipio:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+    codigo_estado:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+  relations:
+    SrcmtEstado:
+      local: codigo_estado
+      foreign: codigo_estado
+      foreignType: one
+    SrcmtMunicipio:
+      local: [codigo_estado, codigo_municipio]
+      foreign: [codigo_estado, codigo_municipio]
+      foreignType: one
+SrcmtPfg:
+  connection: doctrine
+  tableName: srcmt_pfg
+  columns:
+    id_pfg:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: srcmt_pfg_id_pfg
+    pfg:
+      type: string(50)
+      fixed: true
+      unsigned: false
+      notnull: true
+      primary: false
+  relations:
+    SrcmtMilicianos:
+      local: id_pfg
+      foreign: programa_formacion_grado
+      type: many
+SrcmtSedes:
+  connection: doctrine
+  tableName: srcmt_sedes
+  columns:
+    id_sedes:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: srcmt_sedes_id_sedes
+    sedes:
+      type: string(50)
+      fixed: true
+      unsigned: false
+      notnull: true
+      primary: false
+    direccion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+  relations:
+    SrcmtBrigadistasDado:
+      local: id_sedes
+      foreign: sedes
+      type: many
+    SrcmtMilicianos:
+      local: id_sedes
+      foreign: sedes
+      type: many
+SrcmtTipoActividad:
+  connection: doctrine
+  tableName: srcmt_tipo_actividad
+  columns:
+    codigo_tipo_actividad:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: srcmt_tipo_actividad_codigo_tipo_actividad
+    tipo_actividad:
+      type: string(50)
+      fixed: true
+      unsigned: false
+      notnull: true
+      primary: false
+  relations:
+    SrcmtActividadesAcademicas:
+      local: codigo_tipo_actividad
+      foreign: codigo_tipo_actividad
+      type: many
+    SrcmtActividadesIcm:
+      local: codigo_tipo_actividad
+      foreign: codigo_tipo_actividad
+      type: many

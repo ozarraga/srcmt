@@ -1,0 +1,506 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/10-Routing
+
+
+# Inicio de rutas de Brigadistas Dado
+BrigadistasDado:
+  url: /brigdado
+  class: sfDoctrineRoute
+  options: { model: SrcmtBrigadistasDado, type: list }
+  params: { module: BrigadistasDado, action: index }
+  requirements:
+    sf_method: [get]
+BrigadistasDado_new:
+  url: /brigdado/new
+  class: sfDoctrineRoute
+  options: { model: SrcmtBrigadistasDado, type: object }
+  params: { module: BrigadistasDado, action: new }
+  requirements:
+    sf_method: [get]
+BrigadistasDado_create:
+  url: /brigdado
+  class: sfDoctrineRoute
+  options: { model: SrcmtBrigadistasDado, type: object }
+  params: { module: BrigadistasDado, action: create }
+  requirements:
+    sf_method: [post]
+BrigadistasDado_edit:
+  url: /brigdado/:codigo_brigadista/edit
+  class: sfDoctrineRoute
+  options: { model: SrcmtBrigadistasDado, type: object }
+  params: { module: BrigadistasDado, action: edit }
+  requirements:
+    sf_method: [get]
+BrigadistasDado_update:
+  url: /brigdado/:codigo_brigadista
+  class: sfDoctrineRoute
+  options: { model: SrcmtBrigadistasDado, type: object }
+  params: { module: BrigadistasDado, action: update }
+  requirements:
+    sf_method: [put]
+BrigadistasDado_delete:
+  url: /brigdado/:codigo_brigadista
+  class: sfDoctrineRoute
+  options: { model: SrcmtBrigadistasDado, type: object }
+  params: { module: BrigadistasDado, action: delete }
+  requirements:
+    sf_method: [delete]
+BrigadistasDado_show:
+  url: /brigdado/:codigo_brigadista/show
+  class: sfDoctrineRoute
+  options: { model: SrcmtBrigadistasDado, type: object }
+  params: { module: BrigadistasDado, action: show }
+  requirements:
+    sf_method: [get]
+BrigadistasDado_imprimir_sencillo:
+  url: /brigdado/:codigo_brigadista/imp/s
+  class: sfDoctrineRoute
+  options: { model: SrcmtBrigadistasDado, type: object }
+  params: { module: BrigadistasDado, action: imprimirSencillo}
+  requirements:
+    sf_method: [get]
+BrigadistasDado_imprimir_lista:
+  url: /brigdado/imp/lista
+  class: sfDoctrineRoute
+  options: { model: SrcmtBrigadistasDado, type: list }
+  params: { module: BrigadistasDado, action: ImprimirLista }
+  requirements:
+    sf_method: [post]
+BrigadistasDado_imprimir_actividades:
+  url: /brigdado/:codigo_brigadista/imp/a
+  class: sfDoctrineRoute
+  options: { model: SrcmtBrigadistasDado, type: object }
+  params: { module: BrigadistasDado, action: imprimirActividades}
+  requirements:
+    sf_method: [get]
+BrigadistasDado_show_actividades:
+  url: /brigdado/:codigo_brigadista/show/a
+  class: sfDoctrineRoute
+  options: { model: SrcmtBrigadistasDado, type: object }
+  params: { module: BrigadistasDado, action: showActividades}
+  requirements:
+    sf_method: [get]
+BrigadistasDado_ajax:
+  url: /brigdadoAjax
+  class: sfDoctrineRoute
+  options: { model: SrcmtBrigadistasDado, type: list}
+  params: { module: BrigadistasDado, action: indexAjax }
+  requirements:
+    sf_method: [get]
+
+
+
+# Fin de Rutas de Brigadistas Dado
+
+# Inicio de rutas de Brigadistas Estudiantiles
+milicianos:
+  url: /brigest
+  class: sfDoctrineRoute
+  options: { model: SrcmtMilicianos, type: list }
+  params: { module: milicianos, action: index }
+  requirements:
+    sf_method: [get]
+milicianos_new:
+  url: /brigest/new
+  class: sfDoctrineRoute
+  options: { model: SrcmtMilicianos, type: object }
+  params: { module: milicianos, action: new }
+  requirements:
+    sf_method: [get]
+milicianos_create:
+  url: /brigest
+  class: sfDoctrineRoute
+  options: { model: SrcmtMilicianos, type: object }
+  params: { module: milicianos, action: create }
+  requirements:
+    sf_method: [post]
+milicianos_edit:
+  url: /brigest/:codigo_miliciano/edit
+  class: sfDoctrineRoute
+  options: { model: SrcmtMilicianos, type: object }
+  params: { module: milicianos, action: edit }
+  requirements:
+    sf_method: [get]
+milicianos_update:
+  url: /brigest/:codigo_miliciano
+  class: sfDoctrineRoute
+  options: { model: SrcmtMilicianos, type: object }
+  params: { module: milicianos, action: update }
+  requirements:
+    sf_method: [put]
+milicianos_delete:
+  url: /brigest/:codigo_miliciano
+  class: sfDoctrineRoute
+  options: { model: SrcmtMilicianos, type: object }
+  params: { module: milicianos, action: delete }
+  requirements:
+    sf_method: [delete]
+milicianos_show:
+  url: /brigest/:codigo_miliciano/show
+  class: sfDoctrineRoute
+  options: { model: SrcmtMilicianos, type: object }
+  params: { module: milicianos, action: show }
+  requirements:
+    sf_method: [get]
+milicianos_show_actividades:
+  url: /brigest/:codigo_miliciano/show/a
+  class: sfDoctrineRoute
+  options: { model: SrcmtMilicianos, type: object }
+  params: { module: milicianos, action: showActividades }
+  requirements:
+    sf_method: [get]
+milicianos_imprimir_sencillo:
+  url: /brigest/:codigo_miliciano/imp/sencillo
+  class: sfDoctrineRoute
+  options: { model: SrcmtMilicianos, type: object }
+  params: { module: milicianos, action: ImprimirSencillo}
+  requirements:
+    sf_method: [get]
+milicianos_imprimir_lista:
+  url: /brigest/imp/lista
+  class: sfDoctrineRoute
+  options: { model: SrcmtMilicianos, type: list }
+  params: { module: milicianos, action: ImprimirLista}
+  requirements:
+    sf_method: [post]
+milicianos_imprimir_actividades:
+  url: /brigest/:codigo_miliciano/imp/a
+  class: sfDoctrineRoute
+  options: { model: SrcmtMilicianos, type: object }
+  params: { module: milicianos, action: imprimirActividades}
+  requirements:
+    sf_method: [get]
+milicianos_ajax:
+  url: /brigestAjax
+  class: sfDoctrineRoute
+  options: { model: SrcmtMilicianos, type: list }
+  params: { module: milicianos, action: indexAjax }
+  requirements:
+    sf_method: [get]
+milicianos_grafico_set:
+  url:   /brigest/grafico
+  class: sfDoctrineRoute
+  options: { model: SrcmtMilicianos, type: list }
+  params: { module: milicianos, action: EstadisticasSet }
+  requirements:
+    sf_method: [get, post]
+
+milicianos_grafico_ajax:
+  url:   /brigest/graficoAjax
+  class: sfDoctrineRoute
+  options: { model: SrcmtMilicianos, type: list }
+  params: { module: milicianos, action: EstadisticasGetAjax }
+  requirements:
+    sf_method: [get]
+# Fin de Rutas de Brigadistas Estudiantiles
+
+# Inicio de rutas de tipo activida
+SrcmtTipoActividad:
+  url: /tipact
+  class: sfDoctrineRoute
+  options: { model: SrcmtTipoActividad, type: list }
+  params: { module: SrcmtTipoActividad, action: index }
+  requirements:
+    sf_method: [get]
+SrcmtTipoActividad_new:
+  url: /tipact/new
+  class: sfDoctrineRoute
+  options: { model: SrcmtTipoActividad, type: object }
+  params: { module: SrcmtTipoActividad, action: new }
+  requirements:
+    sf_method: [get]
+SrcmtTipoActividad_create:
+  url: /tipact
+  class: sfDoctrineRoute
+  options: { model: SrcmtTipoActividad, type: object }
+  params: { module: SrcmtTipoActividad, action: create }
+  requirements:
+    sf_method: [post]
+SrcmtTipoActividad_edit:
+  url: /tipact/:codigo_tipo_actividad/edit
+  class: sfDoctrineRoute
+  options: { model: SrcmtTipoActividad, type: object }
+  params: { module: SrcmtTipoActividad, action: edit }
+  requirements:
+    sf_method: [get]
+SrcmtTipoActividad_update:
+  url: /tipact/:codigo_tipo_actividad
+  class: sfDoctrineRoute
+  options: { model: SrcmtTipoActividad, type: object }
+  params: { module: SrcmtTipoActividad, action: update }
+  requirements:
+    sf_method: [put]
+SrcmtTipoActividad_delete:
+  url: /tipact/:codigo_tipo_actividad
+  class: sfDoctrineRoute
+  options: { model: SrcmtTipoActividad, type: object }
+  params: { module: SrcmtTipoActividad, action: delete }
+  requirements:
+    sf_method: [delete]
+
+# Fin de Rutas de tipo actividad
+
+# Inicio de rutas de pfg
+SrcmtPfg:
+  url: /pfg
+  class: sfDoctrineRoute
+  options: { model: SrcmtPfg, type: list }
+  params: { module: SrcmtPfg, action: index }
+  requirements:
+    sf_method: [get]
+SrcmtPfg_new:
+  url: /pfg/new
+  class: sfDoctrineRoute
+  options: { model: SrcmtPfg, type: object }
+  params: { module: SrcmtPfg, action: new }
+  requirements:
+    sf_method: [get]
+SrcmtPfg_create:
+  url: /pfg
+  class: sfDoctrineRoute
+  options: { model: SrcmtPfg, type: object }
+  params: { module: SrcmtPfg, action: create }
+  requirements:
+    sf_method: [post]
+SrcmtPfg_edit:
+  url: /pfg/:id_pfg/edit
+  class: sfDoctrineRoute
+  options: { model: SrcmtPfg, type: object }
+  params: { module: SrcmtPfg, action: edit }
+  requirements:
+    sf_method: [get]
+SrcmtPfg_update:
+  url: /pfg/:id_pfg
+  class: sfDoctrineRoute
+  options: { model: SrcmtPfg, type: object }
+  params: { module: SrcmtPfg, action: update }
+  requirements:
+    sf_method: [put]
+SrcmtPfg_delete:
+  url: /pfg/:id_pfg
+  class: sfDoctrineRoute
+  options: { model: SrcmtPfg, type: object }
+  params: { module: SrcmtPfg, action: delete }
+  requirements:
+    sf_method: [delete]
+
+
+# Fin de Rutas de pfg
+
+# Inicio de rutas de Actividades ICM
+SrcmtActividadesIcm:
+  url: /actividad_icm
+  class: sfDoctrineRoute
+  options: { model: SrcmtActividadesIcm, type: list }
+  params: { module: SrcmtActividadesIcm, action: index }
+  requirements:
+    sf_method: [get]
+SrcmtActividadesIcm_ajax:
+  url: /actividad_icmAjax
+  class: sfDoctrineRoute
+  options: { model: SrcmtActividadesIcm, type: list }
+  params: { module: SrcmtActividadesIcm, action: indexAjax }
+  requirements:
+    sf_method: [get]
+SrcmtActividadesIcm_new:
+  url: /actividad_icm/new
+  class: sfDoctrineRoute
+  options: { model: SrcmtActividadesIcm, type: object }
+  params: { module: SrcmtActividadesIcm, action: new }
+  requirements:
+    sf_method: [get]
+SrcmtActividadesIcm_create:
+  url: /actividad_icm
+  class: sfDoctrineRoute
+  options: { model: SrcmtActividadesIcm, type: object }
+  params: { module: SrcmtActividadesIcm, action: create }
+  requirements:
+    sf_method: [post]
+SrcmtActividadesIcm_edit:
+  url: /actividad_icm/:codigo_actividad_icm/edit
+  class: sfDoctrineRoute
+  options: { model: SrcmtActividadesIcm, type: object }
+  params: { module: SrcmtActividadesIcm, action: edit }
+  requirements:
+    sf_method: [get]
+SrcmtActividadesIcm_update:
+  url: /actividad_icm/:codigo_actividad_icm
+  class: sfDoctrineRoute
+  options: { model: SrcmtActividadesIcm, type: object }
+  params: { module: SrcmtActividadesIcm, action: update }
+  requirements:
+    sf_method: [put]
+SrcmtActividadesIcm_delete:
+  url: /actividad_icm/:codigo_actividad_icm
+  class: sfDoctrineRoute
+  options: { model: SrcmtActividadesIcm, type: object }
+  params: { module: SrcmtActividadesIcm, action: delete }
+  requirements:
+    sf_method: [delete]
+SrcmtActividadesIcm_show:
+  url: /actividad_icm/:codigo_actividad_icm/show
+  class: sfDoctrineRoute
+  options: { model: SrcmtActividadesIcm, type: object }
+  params: { module: SrcmtActividadesIcm, action: show }
+  requirements:
+    sf_method: [get]
+SrcmtActividadesIcm_imprimir_lista:
+  url: /actividad_icm/imp/lista
+  class: sfDoctrineRoute
+  options: { model: SrcmtActividadesIcm, type: list }
+  params: { module: SrcmtActividadesIcm, action: ImprimirLista}
+  requirements:
+    sf_method: [post]
+SrcmtActividadesIcm_imprimir_brigadistas:
+  url: /actividad_icm/:codigo_actividad_icm/imp/b
+  class: sfDoctrineRoute
+  options: { model: SrcmtActividadesIcm, type: object }
+  params: { module: SrcmtActividadesIcm, action: imprimirBrigadistas}
+  requirements:
+    sf_method: [get]
+
+# Fin de Rutas de Actividades ICM
+
+# Inicio de rutas de Actividades Academicas
+SrcmtActividadesAcademicas:
+  url: /actividad_acad
+  class: sfDoctrineRoute
+  options: { model: SrcmtActividadesAcademicas, type: list }
+  params: { module: SrcmtActividadesAcademicas, action: index }
+  requirements:
+    sf_method: [get]
+SrcmtActividadesAcademicas_ajax:
+  url: /actividad_acadAjax
+  class: sfDoctrineRoute
+  options: { model: SrcmtActividadesAcademicas, type: list }
+  params: { module: SrcmtActividadesAcademicas, action: indexAjax }
+  requirements:
+    sf_method: [get]
+SrcmtActividadesAcademicas_new:
+  url: /actividad_acad/new
+  class: sfDoctrineRoute
+  options: { model: SrcmtActividadesAcademicas, type: object }
+  params: { module: SrcmtActividadesAcademicas, action: new }
+  requirements:
+    sf_method: [get]
+SrcmtActividadesAcademicas_create:
+  url: /actividad_acad
+  class: sfDoctrineRoute
+  options: { model: SrcmtActividadesAcademicas, type: object }
+  params: { module: SrcmtActividadesAcademicas, action: create }
+  requirements:
+    sf_method: [post]
+SrcmtActividadesAcademicas_edit:
+  url: /actividad_acad/:codigo_actividad_academica/edit
+  class: sfDoctrineRoute
+  options: { model: SrcmtActividadesAcademicas, type: object }
+  params: { module: SrcmtActividadesAcademicas, action: edit }
+  requirements:
+    sf_method: [get]
+SrcmtActividadesAcademicas_update:
+  url: /actividad_acad/:codigo_actividad_academica
+  class: sfDoctrineRoute
+  options: { model: SrcmtActividadesAcademicas, type: object }
+  params: { module: SrcmtActividadesAcademicas, action: update }
+  requirements:
+    sf_method: [put]
+SrcmtActividadesAcademicas_delete:
+  url: /actividad_acad/:codigo_actividad_academica
+  class: sfDoctrineRoute
+  options: { model: SrcmtActividadesAcademicas, type: object }
+  params: { module: SrcmtActividadesAcademicas, action: delete }
+  requirements:
+    sf_method: [delete]
+SrcmtActividadesAcademicas_show:
+  url: /actividad_acad/:codigo_actividad_academica/show
+  class: sfDoctrineRoute
+  options: { model: SrcmtActividadesAcademicas, type: object }
+  params: { module: SrcmtActividadesAcademicas, action: show }
+  requirements:
+    sf_method: [get]
+SrcmtActividadesAcademicas_imprimir_lista:
+  url: /actividad_acad/imp/l
+  class: sfDoctrineRoute
+  options: { model: SrcmtActividadesAcademicas, type: list }
+  params: { module: SrcmtActividadesAcademicas, action: ImprimirLista}
+  requirements:
+    sf_method: [post]
+SrcmtActividadesAcademicas_imprimir_brigadistas:
+  url: /actividad_acad/:codigo_actividad_academica/imp/b
+  class: sfDoctrineRoute
+  options: { model: SrcmtActividadesAcademicas, type: object }
+  params: { module: SrcmtActividadesAcademicas, action: imprimirBrigadistas}
+  requirements:
+    sf_method: [get]
+
+# Fin de Rutas de Actividades Academicas
+
+# Inicio de rutas de Sedes
+SrcmtSedes:
+  url: /sede
+  class: sfDoctrineRoute
+  options: { model: SrcmtSedes, type: list }
+  params: { module: SrcmtSedes, action: index }
+  requirements:
+    sf_method: [get]
+SrcmtSedes_new:
+  url: /sede/new
+  class: sfDoctrineRoute
+  options: { model: SrcmtSedes, type: object }
+  params: { module: SrcmtSedes, action: new }
+  requirements:
+    sf_method: [get]
+SrcmtSedes_create:
+  url: /sede
+  class: sfDoctrineRoute
+  options: { model: SrcmtSedes, type: object }
+  params: { module: SrcmtSedes, action: create }
+  requirements:
+    sf_method: [post]
+SrcmtSedes_edit:
+  url: /sede/:id_sedes/edit
+  class: sfDoctrineRoute
+  options: { model: SrcmtSedes, type: object }
+  params: { module: SrcmtSedes, action: edit }
+  requirements:
+    sf_method: [get]
+SrcmtSedes_update:
+  url: /sede/:id_sedes
+  class: sfDoctrineRoute
+  options: { model: SrcmtSedes, type: object }
+  params: { module: SrcmtSedes, action: update }
+  requirements:
+    sf_method: [put]
+SrcmtSedes_delete:
+  url: /sede/:id_sedes
+  class: sfDoctrineRoute
+  options: { model: SrcmtSedes, type: object }
+  params: { module: SrcmtSedes, action: delete }
+  requirements:
+    sf_method: [delete]
+SrcmtSedes_show:
+  url: /sede/:id_sedes/show
+  class: sfDoctrineRoute
+  options: { model: SrcmtSedes, type: object }
+  params: { module: SrcmtSedes, action: show }
+  requirements:
+    sf_method: [get]
+
+# Fin de Rutas de Sedes
+
+sf_guard_secure:
+  url:   /guard/secure
+  param: { module: sfGuardAuth, action: secure }
+# default rules
+homepage:
+  url:   /
+  param: { module: homepage, action: index }
+
+# generic rules
+# please, remove them by adding more specific rules
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*
