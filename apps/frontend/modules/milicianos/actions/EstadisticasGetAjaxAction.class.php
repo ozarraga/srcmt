@@ -26,12 +26,15 @@ class EstadisticasGetAjaxAction extends sfAction {
 
         $titulos_y_campos = SrcmtMilicianos::getSelectTitulosCampos();
         $this->formFilter = new SrcmtMilicianosFormFilterAggregate(
-                Array(), Array('titulos_y_campos' => $titulos_y_campos, 'allow_extra_fields' => true), sfConfig::get('sf_csrf_secret'));
+                        Array(), Array('titulos_y_campos' => $titulos_y_campos, 'allow_extra_fields' => true),
+                        sfConfig::get('sf_csrf_secret'));
 
         $this->milicianos = $this->getRoute()->getObjects();
         /* Total data set length */
         $iTotal = $this->milicianos->count();
         $temparray = $this->milicianos->getTable()->getFieldNames();
+
+        $this->query = array();
 
         foreach ($temparray as $key => $value) {
 
@@ -237,6 +240,8 @@ class EstadisticasGetAjaxAction extends sfAction {
             }
         }
 
+
+
         $aColumns = $newarray; // almacena los nombres de las columnas de la tabla
         unset($temparray, $newarray);
 
@@ -246,159 +251,171 @@ class EstadisticasGetAjaxAction extends sfAction {
         /* DB table to use */
         $sTable = 'SrcmtMilicianos';
 
-        $sessionQuery = $this->getUser()->getAttribute('srcmt_milicianos.GroupQuery');
+        $srcmt_milicianos_filter = $this->getUser()->getAttribute('srcmt_milicianos.filters', $this->getFilterDefaults(), 'modulo_milicianos');
+
+
 
         ////////////////////////////////////////////////////////////////////
-        if ($this->getUser()->hasAttribute('srcmt_milicianos.Group_filter')) {
+        if (!(count($srcmt_milicianos_filter) <= 1)) {
 
-        }
-
-
-        $columnas = array();
-        if (array_key_exists('columnas', $srcmt_milicianos_filter)) {
-            $columnas = $srcmt_milicianos_filter['columnas'];
-            $temparray = array();
-            foreach ($srcmt_milicianos_filter as $key => $value) {
-                if ($key == 'columnas') {
-                    continue;
-                } else {
-                    $temparray[$key] = $value;
+            $columnas = array();
+            if (array_key_exists('columnas', $srcmt_milicianos_filter)) {
+                $columnas = $srcmt_milicianos_filter['columnas'];
+                $temparray = array();
+                foreach ($srcmt_milicianos_filter as $key => $value) {
+                    if ($key == 'columnas') {
+                        continue;
+                    } else {
+                        $temparray[$key] = $value;
+                    }
                 }
+                $srcmt_milicianos_filter = $temparray;
+                /*
+                 * Conectando al formulario de filtro local, y los valores de la petición
+                 * guardados en el arreglo.
+                 */
+                $this->formFilter->bind($srcmt_milicianos_filter);
             }
-            $srcmt_milicianos_filter = $temparray;
-        }
 
+            /*
+             * Validación del formulario de filtro y construcción de la consulta base
+             */
+            if ($this->formFilter->isValid()) {
 
-        /*
-         * Conectando al formulario de filtro local, y los valores de la petición
-         * guardados en el arreglo.
-         */
-        if ($request->hasParameter($this->formFilter->getName())) {
-            $this->formFilter->bind($srcmt_milicianos_filter);
-        } else {
+                $this->query = Doctrine_Query::create()
+                        ->select('count(a.codigo_miliciano)')
+                        ->from('SrcmtMilicianos a')
+                ;
 
-            $this->getUser()->setFlash('error', 'Ha ocurrido un error');
-            $this->forward('homepage', 'index');
-        }
+                $consulta = $this->query->getSqlQuery();
 
+//        $this->query = $this->formFilter->buildQuery(
+//            $this->formFilter->getValues()
+//        );
+            } else {
+                $error = $this->formFilter->getErrorSchema()->getMessage();
+                $this->getUser()->setFlash('error', 'Ha ocurrido un error: ' . $error);
+                $this->forward('homepage', 'index');
+            }
+            /*
+             * Asignación de las columnas a seleccionar de la consulta
+             * y definición de los encabezados por defecto y con filtros
+             */
 
-        /*
-         * Validación del formulario de filtro y construcción de la consulta base
-         */
-        if ($this->formFilter->isValid()) {
-
-
-            $this->query = $this->formFilter->buildQuery(
-                    $this->formFilter->getValues()
-            );
-        } else {
-            $error = $this->formFilter->getErrorSchema()->getMessage();
-            $this->getUser()->setFlash('error', 'Ha ocurrido un error: ' . $error);
-            $this->forward('homepage', 'index');
-        }
-        /*
-         * Asignación de las columnas a seleccionar de la consulta
-         * y definición de los encabezados por defecto y con filtros
-         */
-
-        $seleccion = array();
-        $titulosEncabezados = array();
+            $seleccion = array();
+            $titulosEncabezados = array();
 //            $rootalias = $this->query->getRootAlias();
-        if (!$columnas == array()) {
 
-            foreach ($columnas as $key => $value) {
+ //           $this->query->addSelect(sprintf('count(%s.%s)', $this->query->getRootAlias(), 'codigo_miliciano'));
 
-                $this->query = $this->formFilter->addSelectGroupByParameter($this->query, $key);
+            if (!$columnas == array()) {
+
+                foreach ($columnas as $key => $value) {
+
+                    $this->query = $this->formFilter->addSelectGroupByParameter($this->query, $key);
 
 //                    $this->query->addSelect($rootalias . '.' . $key);
-                $titulosEncabezados[] = array_search($key, $titulos_y_campos);
-            }
-            $seleccion = $columnas;
-        } else {
+                    $titulosEncabezados[] = array_search($key, $titulos_y_campos);
+                }
+                $seleccion = $columnas;
+            } else {
 
-            foreach ($titulos_y_campos as $key => $value) {
+                foreach ($titulos_y_campos as $key => $value) {
 
-                $this->query = $this->formFilter->addSelectGroupByParameter($this->query, $value);
+                    $this->query = $this->formFilter->addSelectGroupByParameter($this->query, $value);
 //                    $this->query->addSelect($rootalias . '.' . $value);
-                $titulosEncabezados[] = $key;
-                $seleccion[$value] = $value;
-            }
-        }
-        ////////////////////////////////////////////////////////////////////
-
-
-
-
-        $sfQuery = Doctrine::getTable($sTable)
-                ->createQuery('a')
-        ;
-
-        /*
-         * Paging
-         */
-
-        $iDisplayStart = $request->getGetParameter('iDisplayStart');
-        $iDisplayLength = $request->getGetParameter('iDisplayLength');
-
-        $sLimit = "";
-        if (isset($iDisplayStart) && $iDisplayLength != '-1') {
-            $sfQuery->limit($iDisplayLength)
-                    ->offset($iDisplayStart)
-            ;
-        }
-
-        /*
-         * Ordering
-         */
-        $iSortCol_0 = $request->getGetParameter('iSortCol_0');
-
-        if (isset($iSortCol_0)) {
-            $sOrder = "ORDER BY  ";
-            for ($i = 0; $i < intval($request->getGetParameter('iSortingCols')); $i++) {
-                if ($request->getGetParameter('bSortable_' . intval($request->getGetParameter('iSortCol_' . $i) == "true"))) {
-                    $sfQuery->addOrderBy($sfQuery->getRootAlias() . "." . $aColumns[intval($request->getGetParameter('iSortCol_' . $i))] . " " . $request->getGetParameter('sSortDir_' . $i))
-                    ;
+                    $titulosEncabezados[] = $key;
+                    $seleccion[$value] = $value;
                 }
             }
-        }
+            $sfQuery_sin_limit = $this->query; // usada posteriormente para obtener el número de registros coincidentes con los criterios
+
+            $consulta = $this->query->getSqlQuery();
 
 
-        /*
-         * Filtering
-         */
-        $sWhere = "";
-        if ($request->getGetParameter('sSearch') != "") {
-            $sWhere = "WHERE (";
+            $rResult = $this->query->execute();
+
+            /* Data set length after filtering */
+            $sfQuery_sin_limit->removeDqlQueryPart('limit')
+                    ->removeDqlQueryPart('offset');
+
+            $iFilteredTotal = $sfQuery_sin_limit->execute()->count();
+
+            ////////////////////////////////////////////////////////////////////
+        } else {
+
+            $sfQuery = Doctrine::getTable($sTable)
+                    ->createQuery('a')
+            ;
+
+
+            /*
+             * Paging
+             */
+
+            $iDisplayStart = $request->getGetParameter('iDisplayStart');
+            $iDisplayLength = $request->getGetParameter('iDisplayLength');
+
+            $sLimit = "";
+            if (isset($iDisplayStart) && $iDisplayLength != '-1') {
+                $sfQuery->limit($iDisplayLength)
+                        ->offset($iDisplayStart)
+                ;
+            }
+
+            /*
+             * Ordering
+             */
+            $iSortCol_0 = $request->getGetParameter('iSortCol_0');
+
+            if (isset($iSortCol_0)) {
+                $sOrder = "ORDER BY  ";
+                for ($i = 0; $i < intval($request->getGetParameter('iSortingCols')); $i++) {
+                    if ($request->getGetParameter('bSortable_' . intval($request->getGetParameter('iSortCol_' . $i)
+                                            == "true"))) {
+                        $sfQuery->addOrderBy($sfQuery->getRootAlias() . "." . $aColumns[intval($request->getGetParameter('iSortCol_' . $i))] . " " . $request->getGetParameter('sSortDir_' . $i))
+                        ;
+                    }
+                }
+            }
+
+
+            /*
+             * Filtering
+             */
+            $sWhere = "";
+            if ($request->getGetParameter('sSearch') != "") {
+                $sWhere = "WHERE (";
+                for ($i = 0; $i < count($aColumns); $i++) {
+
+                    $sfQuery->orWhere('quote_literal(' . $sfQuery->getRootAlias() . '.' . $aColumns[$i] . ')' . ' ILIKE \'%' . pg_escape_string($request->getGetParameter('sSearch')) . '%\'');
+                }
+            }
+
+            /* Individual column filtering */
             for ($i = 0; $i < count($aColumns); $i++) {
+                if ($request->getGetParameter('bSearchable_' . $i) == "true" && $request->getGetParameter('sSearch_' . $i)
+                        != '') {
 
-                $sfQuery->orWhere('quote_literal(' . $sfQuery->getRootAlias() . '.' . $aColumns[$i] . ')' . ' ILIKE \'%' . pg_escape_string($request->getGetParameter('sSearch')) . '%\'');
+                    $sfQuery->addWhere('quote_literal(' . $sfQuery->getRootAlias() . '.' . $aColumns[$i] . ')' . ' ILIKE \'%' . pg_escape_string($request->getGetParameter('sSearch')) . '%\'');
+                }
             }
+
+            /*
+             * SQL queries
+             * Get data to display
+             */
+
+            $sfQuery_sin_limit = $sfQuery; // usada posteriormente para obtener el número de registros coincidentes con los criterios
+
+            $rResult = $sfQuery->execute();
+
+            /* Data set length after filtering */
+            $sfQuery_sin_limit->removeDqlQueryPart('limit')
+                    ->removeDqlQueryPart('offset');
+
+            $iFilteredTotal = $sfQuery_sin_limit->execute()->count();
         }
-
-        /* Individual column filtering */
-        for ($i = 0; $i < count($aColumns); $i++) {
-            if ($request->getGetParameter('bSearchable_' . $i) == "true" && $request->getGetParameter('sSearch_' . $i) != '') {
-
-                $sfQuery->addWhere('quote_literal(' . $sfQuery->getRootAlias() . '.' . $aColumns[$i] . ')' . ' ILIKE \'%' . pg_escape_string($request->getGetParameter('sSearch')) . '%\'');
-            }
-        }
-
-        /*
-         * SQL queries
-         * Get data to display
-         */
-
-        $sfQuery_sin_limit = $sfQuery; // usada posteriormente para obtener el número de registros coincidentes con los criterios
-
-        $rResult = $sfQuery->execute();
-
-        /* Data set length after filtering */
-        $sfQuery_sin_limit->removeDqlQueryPart('limit')
-                ->removeDqlQueryPart('offset');
-
-        $iFilteredTotal = $sfQuery_sin_limit->execute()->count();
-
-
 
         /*
          * Output
@@ -491,6 +508,10 @@ class EstadisticasGetAjaxAction extends sfAction {
         $this->getResponse()->setHttpHeader('Content-Type', 'application/json; charset=utf-8');
 
         return $this->renderText(json_encode($this->output));
+    }
+
+    protected function getFilterDefaults() {
+        return array();
     }
 
 }

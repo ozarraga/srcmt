@@ -370,7 +370,7 @@ class SrcmtMilicianosFormFilterAggregate extends BaseSrcmtMilicianosFormFilter {
 
     public function addSelectGroupByParameter(Doctrine_Query $query, $field) {
         $fieldName = $this->getFieldName($field);
-        $query->addSelect(sprintf('%s.%s', $query->getRootAlias(), $fieldName));
+//        $query->addSelect(sprintf('%s.%s', $query->getRootAlias(), $fieldName));
         $query->addGroupBy(sprintf('%s.%s', $query->getRootAlias(), $fieldName));
         $query->addOrderBy(sprintf('%s.%s ASC', $query->getRootAlias(), $fieldName));
         return $query;
